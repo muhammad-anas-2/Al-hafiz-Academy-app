@@ -12,12 +12,19 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+
+
+
 //= require rails-ujs
 //= require jquery
 //= require materialize
 //= require material_icons
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    $('#fade-out-target').fadeOut(400);
+})
 
 
 

@@ -1,13 +1,37 @@
 <header>
-  <nav>
-    <div class="container">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Al-Hafiz Academy</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Enrollment</a></li>
-        </ul>
+    <nav>
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Al-Hafiz Academy</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Enrollment</a></li>
+            <% if logged_in? %>
+              <li><%= link_to "Logout", logout_path, method: :delete %></li>
+            <%else %>
+              <li><%= link_to "Login", login_path %></li>
+              <%end %>
+
+
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+    <% flash.each do |key, message| %>
+      <div class="container">
+        <div class="row sign-up-form">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red lighten-2" id="fade-out-target">
+               <span class="white-text">
+
+               <%=message %>
+
+               </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end %>
+
 </header>
