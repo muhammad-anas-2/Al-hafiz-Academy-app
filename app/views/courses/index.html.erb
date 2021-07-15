@@ -16,7 +16,10 @@
         <p><%= course.description %></p>
       </div>
       <div class="card-action">
-        <a href="#">Enroll</a>
+        <% if logged_in? %>
+       <%= link_to "Enroll", root_path %>
+
+          <%end %>
         <a href="#">Info</a>
       </div>
     </div>

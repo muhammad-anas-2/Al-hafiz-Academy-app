@@ -1,4 +1,9 @@
 class StudentsController < ApplicationController
+
+  skip_before_action :require_user , only:[ :new , :create]
+  before_action :require_same_student, only: [:edit, :update]
+
+
   def index
     @students = Student.all
   end
@@ -34,9 +39,21 @@ class StudentsController < ApplicationController
     end
   end
 
+
+  end
+
   private
   def student_params
     params.require(:student).permit(:name, :email, :password, :password_confirmation)
   end
 
-  end
+ def require_same_student
+   if  current_user != @students
+     flash[:notice] = "you can only edit your profile"
+     redirect_to students_path(current_user)
+
+
+   end
+
+ end
+

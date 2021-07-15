@@ -10,9 +10,9 @@
         </div>
 
       </div>
+      <% if current_user == @students %>
       <%= link_to '<i class="material-icons right">create</i> Edit your profile'.html_safe, edit_student_path(@students), class: "waves-effect waves-light btn" %>
-
-
+      <%end %>
     </div>
 
 
