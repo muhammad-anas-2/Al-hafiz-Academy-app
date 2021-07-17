@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_092025) do
+ActiveRecord::Schema.define(version: 2021_07_15_075740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2021_07_13_092025) do
     t.string "short_name"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "student_courses", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
