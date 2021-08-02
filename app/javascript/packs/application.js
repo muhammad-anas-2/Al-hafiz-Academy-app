@@ -7,6 +7,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+require("rails-ujs")
+require("materialize")
+require("material_icons")
 
 Rails.start()
 Turbolinks.start()
@@ -14,13 +17,6 @@ ActiveStorage.start()
 
 
 
-
-//= require rails-ujs
-//= require jquery
-//= require materialize
-//= require material_icons
-//= require turbolinks
-//= require_tree .
 
 $(document).on('turbolinks:load', function() {
     $('#fade-out-target').fadeOut(400);
