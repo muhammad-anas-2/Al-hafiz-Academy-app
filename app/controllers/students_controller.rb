@@ -32,6 +32,7 @@ class StudentsController < ApplicationController
   def create
     @students = Student.new(student_params)
     if @students.save
+      NewUserEmailMailer.with(students: @students).notify_user.deliver_now
       flash[:notice] = "You have successfully signed up"
       redirect_to @students
     else
